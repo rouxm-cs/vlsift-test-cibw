@@ -1,0 +1,11 @@
+dist/*
+build/*
+vlsift.egg-info/*
+.idea/*
+*~
+*.pyc
+*.so
+
+# Let's just ignore all cython built files
+vlsift/sift/cysift.c
+*.iml

@@ -1,0 +1,11 @@
+# distutils: include_dirs = vlsift
+cimport cython
+cimport numpy as np
+
+
+cdef extern from "cy_util.h":
+    void set_python_vl_printf()
+
+
+cdef inline np.dtype dtype_from_memoryview(cython.view.memoryview arr):
+    return np.dtype(arr.view.format)

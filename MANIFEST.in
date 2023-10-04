@@ -1,0 +1,6 @@
+include LICENSE.txt
+include vlsift/_version.py
+recursive-include vlsift *.h
+recursive-include vlsift *.c
+recursive-include vlsift *.pyx
+recursive-include vlsift *.pxd
