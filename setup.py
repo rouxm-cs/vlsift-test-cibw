@@ -52,14 +52,7 @@ def no_cythonize(extensions, **_ignore):
 
 
 def build_extension_from_pyx(pyx_path):
-    # If we are building from the conda folder,
-    # then we know we can manually copy some files around
-    # because we have control of the setup. If you are
-    # building this manually or pip installing, you must satisfy
-    # that the vlfeat vl folder is on the PATH (for the headers)
-    # and that the vl.dll file is visible to the build system
-    # as well.
-    include_dirs = [NUMPY_INC_PATH, "vlsift/sift/vl"]
+    include_dirs = [NUMPY_INC_PATH, "vlsift/sift/vl","vlsift"]
 
     extra_sources_paths = [pyx_path,"vlsift/sift/vl/generic.c","vlsift/sift/vl/getopt_long.c","vlsift/sift/vl/host.c","vlsift/sift/vl/imopv_sse2.c",
                                "vlsift/sift/vl/imopv.c","vlsift/sift/vl/mathop.c","vlsift/sift/vl/mathop_avx.c","vlsift/sift/vl/mathop_sse2.c",
