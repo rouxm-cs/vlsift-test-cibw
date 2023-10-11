@@ -1,4 +1,4 @@
-/** @file float.th
+/** @file vlfloat.h
  ** @brief Float - Template
  ** @author Andrea Vedaldi
  ** @author David Novotny

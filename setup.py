@@ -62,7 +62,6 @@ def build_extension_from_pyx(pyx_path):
     ext = Extension(name=pyx_path[:-4].replace('/', '.'),
                     sources=extra_sources_paths,
                     include_dirs=include_dirs,
-                    library_dirs=[],
                     define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
                     language='c')
 
