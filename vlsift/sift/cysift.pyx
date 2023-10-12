@@ -16,7 +16,7 @@ from vlsift._vl.sift cimport *
 from vlsift.cy_util cimport set_python_vl_printf
 
 
-cdef int korder(const void *a, const void *b) nogil:
+cdef int korder(const void *a, const void *b) noexcept nogil:
     cdef float x = (<float*> a)[2] - (<float*> b)[2]
     if x < 0: return -1
     if x > 0: return +1
@@ -67,8 +67,7 @@ cpdef cy_sift(float[:, ::1] data, int n_octaves,
         n_user_keypoints = frames.shape[0]
         user_keypoints_arr = &frames[0, 0]
         # Ensure frames array is sorted by increasing scale
-        qsort(user_keypoints_arr, n_user_keypoints,
-              4 * sizeof(float), korder)
+        qsort(user_keypoints_arr, n_user_keypoints,4 * sizeof(float), korder)
 
     if peak_threshold  >= 0: vl_sift_set_peak_thresh(filt, peak_threshold)
     if edge_threshold  >= 0: vl_sift_set_edge_thresh(filt, edge_threshold)
