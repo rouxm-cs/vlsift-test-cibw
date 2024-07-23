@@ -73,8 +73,11 @@ def build_extension_from_pyx(pyx_path):
         ext.extra_compile_args.append('-mavx')
     if IS_OSX:
         ext.extra_link_args.append('-headerpad_max_install_names')
+    if IS_WIN:
+        ext.extra_compile_args.append('/DVL_BUILD_DLL')
+        ext.extra_compile_args.append('/DVL_DISABLE_SSE2')
+        ext.extra_compile_args.append('/DVL_DISABLE_AVX')
     return ext
-
 
 try:
     from Cython.Distutils.extension import Extension
