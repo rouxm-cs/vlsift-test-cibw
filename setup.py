@@ -68,6 +68,7 @@ def build_extension_from_pyx(pyx_path):
     if IS_LINUX or IS_OSX:
         ext.extra_compile_args.append('-Wno-unused-function')
         ext.extra_compile_args.append('-pthread')
+    if IS_LINUX:
         ext.extra_compile_args.append('-lgomp')
         ext.extra_compile_args.append('-msse2')
         ext.extra_compile_args.append('-mavx')
